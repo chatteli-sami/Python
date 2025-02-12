@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>create Ninjas</title>
+  </head>
+  <body>
+    {{ninja.id}}
+    <form action="/ninjas/update" , method="post">
+      <h1>edit ninja</h1>
+      <input type="hidden" name="id" value="{{ninja.id}}" />
+      <input type="hidden" name="ninja.dojo_id" />
+      <div class="first">
+        <label for="first_name">First_name :</label>
+        <input type="text" name="first_name" value="{{ninja.firt_name}}" />
+      </div>
+      <div class="last_name">
+        <label for="last_name">Last_name :</label>
+        <input type="text" name="last_name" value="{{ninja.last_name}}" />
+      </div>
+      <div class="age">
+        <label for="age">Age :</label>
+        <input type="text" name="age" value="{{ninja.age}}" />
+      </div>
+      <input type="submit" value="update ninja" />
+    </form>
+  </body>
+</html>

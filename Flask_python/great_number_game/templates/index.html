@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Great Number Game</h1>
+      {% if feedback %}
+      <h3>{{ feedback }}</h3>
+      {% endif %}
+      <form action="/guess" method="POST">
+        <label for="guess">Enter your guess:</label>
+        <input type="number" id="guess" name="guess" required />
+        <button type="submit">Submit</button>
+      </form>
+      <h4>Attempts: {{ attempts }}</h4>
+      <a href="/reset">Reset Game</a>
+    </div>
+  </body>
+</html>

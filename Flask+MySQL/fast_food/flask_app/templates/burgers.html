@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>burgers</title>
+  </head>
+  <body>
+    <h1>BURGERS</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>bun</th>
+          <th>meat</th>
+          <th>calories</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          {% for b in burgers %}
+          <td>{{b.name}}</td>
+          <td>{{b.bun}}</td>
+          <td>{{b.meat}}</td>
+          <td>{{b.calories}}</td>
+          {% endfor%}
+        </tr>
+      </tbody>
+    </table>
+    <a href="/burgers/create">add burger</a>
+  </body>
+</html>

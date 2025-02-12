@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>authors</title>
+  </head>
+  <body>
+    <div style="display: flex; justify-content: space-evenly">
+      <div>
+        <h1>create author</h1>
+        <form action="/create/author" method="post">
+          <label for="name">name : </label>
+          <input type="text" name="name" placeholder="Author Name" required />
+          <button type="submit">create</button>
+        </form>
+      </div>
+      <div style="display: inline">
+        <h1>all authors</h1>
+        {% for one_author in all_authors %}
+        <p class="card-text">
+          <a href="/author/{{one_author.id}}">{{one_author.name}}</a>
+        </p>
+        {% endfor %}
+        <a style="margin-top: 35px" href="/books">add book</a>
+      </div>
+    </div>
+  </body>
+</html>

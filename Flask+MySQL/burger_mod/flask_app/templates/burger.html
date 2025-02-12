@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div style="display: flex; justify-content: space-around">
+      <form action="/create/burger" method="post">
+        <label for="name">name</label>
+        <input type="text" name="name" />
+        <label for="bun">bun :</label>
+        <input type="text" name="bun" id="" />
+        <label for="bun">meat :</label>
+        <input type="text" name="meat" id="" />
+        <label for="bun">calories :</label>
+        <input type="text" name="calories" id="" />
+        <button type="submit">create</button>
+      </form>
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>name</th>
+              <th>bun</th>
+              <th>meat</th>
+              <th>calories</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {% for burger in burgers %}
+              <td>{{burger.name}}</td>
+              <td>{{burger.bun}}</td>
+              <td>{{burger.meat}}</td>
+              <td>{{burger.calories}}</td>
+              {% endfor %}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

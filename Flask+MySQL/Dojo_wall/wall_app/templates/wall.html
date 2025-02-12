@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wall</title>
+  </head>
+  <body>
+    {{posts}}
+    <div style="padding: 10%">
+      <div class="d-flex">
+        <h3 class="header-content">Wall Page</h3>
+        <div class="header-content">
+          <h3>Welcome {{user.first_name}}</h3>
+          <a href="/logout" class="btn btn-info">Logout</a>
+        </div>
+      </div>
+      <h4>What's on your mind? Create a new post...</h4>
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <div class="error" role="alert">
+        {% for message in messages %}
+        <p class="danger">{{message}}</p>
+        {% endfor %}
+      </div>
+      {% endif %} {% endwith %}
+      <form action="/posts" method="post">
+        <textarea
+          name="content"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="Enter text here"
+        ></textarea>
+        <input type="hidden" name="user_id" value="{{user.id}}" />
+        <input class="btn btn-primary" type="submit" value="Publish" />
+      </form>
+      <hr />
+      <h3>All Community Posts:</h3>
+      {% for post in posts: %}
+      <p>
+        <em
+          >{{post.user.first_name}} says - {{post.created_at.strftime("%b
+          %d")}}:</em
+        >
+      </p>
+      <p>{{post.content}}</p>
+      {% if post.user.id == user.id: %}
+      <a href="/posts/delete/{{post.id}}" class="btn btn-danger">delete</a>
+      {% endif %}
+      <hr />
+      {% endfor %}
+    </div>
+  </body>
+</html>

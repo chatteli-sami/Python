@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dojo</title>
+  </head>
+  <body>
+    <div class="dojo">
+      <h1>{{dojo.name}} ninjas</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>First name</th>
+            <th>last name</th>
+            <th>age</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {% for ninja in dojo.ninjas%}
+            <td>{{ninja.first_name}}</td>
+            <td>{{ninja.last_name}}</td>
+            <td>{{ninja.age}}</td>
+            <td>
+              <a href="/ninjas/edit/{{ninja.id}}">edit</a> -|
+              <a href="/ninjas/delete/{{ninja.id}}">delete</a>
+            </td>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <a href="/">Home</a>
+  </body>
+</html>

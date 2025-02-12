@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>counter</title>
+  </head>
+  <body>
+    <div>
+      <h2>Page Visits: {{ visits }}</h2>
+      <h2>Counter: {{ counter }}</h2>
+      <a href="/increment">+1</a>
+      <a href="/increment_by_2">+2</a>
+      <a href="/reset_counter">Reset Counter</a>
+      <a href="/destroy_session">Destroy Session</a>
+      <form action="/set_increment" method="POST">
+        <div>
+          <label for="increment_value">Increment Value:</label>
+          <input
+            type="number"
+            id="increment_value"
+            name="increment_value"
+            required
+          />
+        </div>
+        <button type="submit">Set Increment</button>
+      </form>
+    </div>
+  </body>
+</html>

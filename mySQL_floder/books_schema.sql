@@ -1,0 +1,1 @@
+SELECT * FROM books_schema.books;
